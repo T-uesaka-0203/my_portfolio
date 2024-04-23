@@ -1,0 +1,9 @@
+header {
+    color: #fff;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+    height: 480px;
+    background: url(/Users/tadayoshi/Desktop/portfolio/my_portfolio/src/assets/images/background.png) center center;
+    background-size: cover;
+}
