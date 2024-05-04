@@ -6,7 +6,7 @@ const Footer: React.FC = () => {
         <Box
         component="footer"
         sx={{
-          backgroundColor: 'primary.main', // フッターの背景色
+          backgroundColor: '#33CCFF', // フッターの背景色
           color: 'white',                  // テキストの色
           textAlign: 'center',             // テキストを中央揃え
           padding: 2,                      // パディング

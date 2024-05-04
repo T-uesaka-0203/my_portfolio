@@ -1,19 +1,20 @@
 import React from 'react';
 import my_image from 'assets/images/my_image.png';
-import PersonIcon from '@mui/icons-material/Person';
+// import PersonIcon from '@mui/icons-material/Person';
+import './Profile.css';
 
 const Profile: React.FC = () => {
   return (
-    <div id="profile" className="my-profile" style={{ display: 'block', justifyContent: 'center', marginTop: '100px'}}>
-      <div className="section-title-block" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-        <PersonIcon style={{ width: '50px', height: '50px' }} />
-        <h2 className="section-title" style={{ fontSize:'40px' }} >PROFILE</h2>
+    <div className="my-profile">
+      {/* <div className="profile-image"> */}
+      <img id="profile-image" src={my_image} alt="" />
+      {/* </div> */}
+      <div className="section-title-block">
+        {/* <PersonIcon style={{ width: '50px', height: '50px' }} /> */}
+        <h1 className="section-title">Tadayoshi Uesaka</h1>
       </div>
-      <div className="profile-content" style={{ margin: 'auto' , maxWidth: '83%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-        <div className="profile-image" style={{ flex: '0 0 25%' }}>
-          <img src={my_image} alt=""  style={{ width: '90%' }} />
-        </div>
-        <div className="profile-text" style={{ flex: 1 }}>
+      <div className="profile-content">
+        <div className="profile-text">
           <p className="text">
             はじめまして！ポートフォリオをご覧いただきありがとうございます！<br />
             24歳エンジニアの上坂と申します。エンジニア歴（IT業界）3年目です。<br />

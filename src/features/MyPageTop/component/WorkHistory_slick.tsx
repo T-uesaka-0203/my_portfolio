@@ -21,8 +21,8 @@ const WorkHistory: React.FC = () => {
   };
 
   return (
-    <div>
-      <div id="works" className="my-profile" style={{ display: 'block', justifyContent: 'center' , marginTop: '100px'}}>
+    <div id="works">
+      <div className="my-profile" style={{ display: 'block', justifyContent: 'center' , marginTop: '100px'}}>
         <div className="section-title-block" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
           <WorkListIcon style={{ width: '50px', height: '50px' }} />
           <h2 className="section-title" style={{ fontSize:'40px' }} >WORKS</h2>

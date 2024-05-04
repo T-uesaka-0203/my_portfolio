@@ -11,8 +11,8 @@ export function MyPageTop() {
   return (
     <div>
         <Header/>
-        <MenuBar/>
         <Profile/>
+        <MenuBar/>
         <Skill/>
         <WorkHistory/>
         <Contact/>
