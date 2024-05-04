@@ -3,6 +3,6 @@ header {
     padding: 10px;
     justify-content: center;
     height: 360px;
-    background: url(/Users/tadayoshi/Downloads/background_brighter.png) center center;
+    background: url(assets/images/background_brighter.png) center center;
     background-size: cover;
 }
