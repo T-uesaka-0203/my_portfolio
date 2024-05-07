@@ -1,8 +1,7 @@
 import React from 'react';
 import { Typography } from "@mui/material";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
+import Box from "@mui/material/Box";
+import Link from "@mui/material/Link";
 import Grid from '@mui/material/Grid';
 import Carousel from 'react-material-ui-carousel';
 import ArrowBackIosSharpIcon from '@mui/icons-material/ArrowBackIosSharp';//左矢印アイコン
@@ -10,21 +9,9 @@ import ArrowForwardIosSharpIcon from '@mui/icons-material/ArrowForwardIosSharp';
 import my_image from 'assets/images/my_image.jpeg';
 import uzone_image from 'assets/images/Uzone_Image.png'
 import WorkListIcon from '@mui/icons-material/Checklist';
-import { styled } from '@mui/system';
 
-// カードのスタイルを定義
-const StyledCard = styled(Card)({
-  width: '100%',
-  transition: 'transform 0.2s', // ホバー時のアニメーション
-  '&:hover': {
-    transform: 'scale(1.05)', // ホバー時の拡大
-  },
-});
-
-const openUzone = () => {
-  window.open('https://uzone.parts/', '_blank');
-}
-
+const lColor = 'black';
+const bgColor = 'whitesmoke';
 const ArrowColor = 'blue';
 const ArrowColor_bg = 'white';
 const Icon = 'lightskyblue';
@@ -40,38 +27,44 @@ interface SlideItemProps {
 
 const EachSlide: React.FC<SlideItemProps> = ({ title, imagePath, href, hrefDetail, additionalComments }) => {
   return (
-    <Grid item xs={12} style={{ display: 'flex', marginLeft:'5%', marginRight:'5%' }}>
-      <StyledCard sx={{ display: 'flex', marginLeft:'10%', marginRight:'10%', borderRadius: 5 }} onClick={openUzone}>
-        <CardContent sx={{ flex: 1, padding: 0 , width: "50%", display: "block", flexDirection: "column", justifyContent: 'center', alignItems: 'center', textAlign: 'center' }} >
-          <CardMedia component="img" sx={{ objectFit: 'cover' }} image={imagePath} />
-        </CardContent>
-        <CardContent sx={{ flex: 1, width: "50%", display: "block", flexDirection: "column", justifyContent: 'center', alignItems: 'center', textAlign: 'center' }} >
-          <Typography variant="body1" gutterBottom style={{ fontWeight: 'bold', fontSize: 'clamp(20px, 3vw, 30px)', marginBottom:'15%' }} >
-           {title}
-          </Typography>
-          {additionalComments.map((comment) => (
-              <Typography variant="body1" gutterBottom style={{ fontWeight: 'bold', fontSize: 'clamp(12px, 3vw, 20px)' }} >
-                {comment}
-              </Typography>
-            ))}
-        </CardContent>
-      </StyledCard>
-    </Grid>
+    <div style={{ display: 'flex', justifyContent: 'center'}}>
+      <Box sx={{ height:300, maxWidth: { xs: '60%', sm: '60%', md: '65%', lg: '70%', xl: '80%' }, backgroundColor:bgColor, alignItems: 'center'}}>
+        <Grid container width='100%' direction="row" xs={12} sm={12} md={12} lg={12} justifyContent="center" alignItems="center">
+          <Grid sx={{display:'flex', height: 300, width: '50%', objectFit: 'contain' , backgroundColor:lColor, alignItems: 'center'}}>
+            <Box //画像をCaousel内に貼り付けたい場合
+              sx={{ display: 'flex', height: 300, width: '100%', objectFit: 'contain' }}
+              component="img"
+              src={imagePath}
+              alt="product-image"
+              ></Box>
+          </Grid>
+          <Grid sx={{ display: 'flex', height: 300, justifyContent: 'center', flexDirection: 'column', alignItems: 'center', width:'50%' }}>
+            <Typography sx={{ justifyContent: 'center', alignItems: 'center' }} variant="h5">{title}</Typography>
+              <ul>
+              {additionalComments.map((comment, index) => (
+                <li>{comment}</li>
+              ))}
+              </ul>
+            <Typography sx={{ justifyContent: 'center', alignItems: 'center' }} variant="h5">
+              <Link href={href}>{hrefDetail}</Link>
+            </Typography>
+          </Grid>
+        </Grid>
+      </Box>
+    </div>
   );
 };
-
 
 const WorkHistory: React.FC = () => {
   return(
     <div>
-      <div id="works" className="works" style={{ display: 'block', justifyContent: 'center'}}>
-        <Typography style={{ height:"40px", fontSize:'40px' }}>　</Typography>
+      <div id="works" className="works" style={{ display: 'block', justifyContent: 'center' , marginTop: '100px'}}>
         <div className="section-title-block" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
           <WorkListIcon style={{ width: '50px', height: '50px' }} />
           <h2 className="section-title" style={{ fontSize:'40px' }} >WORKS</h2>
         </div>
       </div>
-      <Grid sx={{ width:'100%', justifyContent:'center'}}>
+      <Box sx={{ width:'100%', justifyContent:'center'}}>
         <Carousel
 
           NextIcon={<ArrowForwardIosSharpIcon/>} //矢印アイコンを別のアイコンに変更
@@ -112,14 +105,14 @@ const WorkHistory: React.FC = () => {
             style : { 
                 color : ArrowColor, //矢印の色
                 backgroundColor : ArrowColor_bg,//矢印の背景の色
-                borderRadius : 100,//0にすると四角になる．
+                borderRadius : 0,//0にすると四角になる．
            },
           }}>
           <EachSlide title="Uzone" imagePath={uzone_image} href='https://uzone.parts/' hrefDetail="Uzoneはこちら" additionalComments={["自動車の中古部品に特化したECサイト", "API開発を担当", "データベース周りの調整を担当", "部品適合ロジックの構築を担当"]}/>
-          <EachSlide title="Miztory" imagePath={my_image} href='' hrefDetail="外部非公開です" additionalComments={["外部システムとバッチで連携", "フルスタックで開発", "研究室内でサーバーを立てて稼働"]}/>
-          <EachSlide title="社内DXツール" imagePath={my_image} href='' hrefDetail="外部非公開です" additionalComments={["GASで実行APIの実装", "Google系のAPI（VisionやGmail）との連携", "GUI、Window、ブラウザ操作の実装"]}/>
+          <EachSlide title="研究室データ管理システム" imagePath={my_image} href='' hrefDetail="外部非公開です" additionalComments={["研究室としてこれまで蓄積してきたデータを統合", "外部APIと連携", "フルスタックで開発", "研究室内でサーバーを立てて稼働"]}/>
+          <EachSlide title="社内DXツール" imagePath={my_image} href='https://uzone.parts/' hrefDetail="外部非公開です" additionalComments={["GASで実行APIの実装", "Google系のAPI（VisionやGmail）との連携", "GUI、Window、ブラウザ操作の実装"]}/>
        </Carousel>
-      </Grid>
+      </Box>
     </div>
   )
 }

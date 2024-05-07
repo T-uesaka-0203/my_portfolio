@@ -1,5 +1,5 @@
 import Header from '../component/Header';
-import MenuBar from '../component/MenuBar';
+// import MenuBar from '../component/MenuBar';
 import Profile from '../component/Profile';
 import Skill from '../component/Skill';
 import WorkHistory from '../component/WorkHistory';
@@ -12,7 +12,7 @@ export function MyPageTop() {
     <div>
         <Header/>
         <Profile/>
-        <MenuBar/>
+        {/* <MenuBar/> */}
         <Skill/>
         <WorkHistory/>
         <Contact/>
