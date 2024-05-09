@@ -54,7 +54,7 @@ const Header: React.FC = () => {
       <AppBar position="fixed" sx={{ backgroundColor: '#33CCFF' }}>
         <Container>
           <Grid sx={{ display: 'flex', justifyContent: 'space-between'}}>
-            <List component="nav" sx={{ width:"100%", height: { xs: '30px', sm: '40px', md: '50px' }, display: 'flex', marginLeft:'auto', marginRight:'auto' }}>
+            <List component="nav" sx={{ width:"100%", height: { xs: '35px', sm: '50px', md: '50px' }, display: 'flex', marginLeft:'auto', marginRight:'auto' }}>
               {MenuContents.map((MenuContent) => (
                 <EachMyPageContent
                   iconComponent={MenuContent.iconComponent}

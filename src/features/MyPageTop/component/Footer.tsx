@@ -12,7 +12,7 @@ const Footer: React.FC = () => {
           padding: 2,                      // パディング
         }}
         >
-        <Typography variant="body2">
+        <Typography sx={{ fontSize: { xs: '12px', sm: '12px', md: '18px', lg:"20px" } }} >
           &copy; {new Date().getFullYear()} CopyRight@Tadayoshi Uesaka. All Rights Reserved.
         </Typography>
       </Box>
